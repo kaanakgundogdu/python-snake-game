@@ -8,7 +8,7 @@ class Scoreboard(Turtle):
         self.penup()
         self.hideturtle()
         self.goto(0, 260)
-        style = ('Courier', 30, 'bold')
+        self.style = ('Courier', 12, 'bold')
         self.score = 0
         self.update_scoreboard()
 
@@ -19,4 +19,9 @@ class Scoreboard(Turtle):
 
     def update_scoreboard(self):
         self.clear()
-        self.write(f"Score:{self.score}", move=False, align="center", font=("Courier", 12, "bold"))
+        self.write(f"Score:{self.score}", move=False, align="center", font=self.style)
+
+    def game_over(self):
+        self.color('red')
+        self.goto(0, 0)
+        self.write(f"GAME OVER!", move=False, align="center", font=self.style)
