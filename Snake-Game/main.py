@@ -29,10 +29,11 @@ while is_game_on:
         scoreboard.add_score()
         snake.extend()
     if snake.head.xcor() > 295 or snake.head.xcor() < -295 or snake.head.ycor() > 295 or snake.head.ycor() < -295:
-        is_game_on = False
-        scoreboard.game_over()
+        scoreboard.reset_game()
+        snake.reset_snake()
     for segment in snake.created_snakes[1:]:
         if snake.head.distance(segment) < 8:
-            is_game_on = False
-            scoreboard.game_over()
+            scoreboard.reset_game()
+            snake.reset_snake()
+
 screen.exitonclick()
